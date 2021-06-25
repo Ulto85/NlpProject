@@ -3,6 +3,7 @@ from processingutils import processing
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 import random
 import pandas as pd
@@ -34,8 +35,9 @@ x_train,x_test,y_train,y_test = train_test_split(vectors,labels,random_state=42,
 neighbors = KNeighborsClassifier(n_neighbors=3)
 neighbors.fit(x_train,y_train)
 print(accuracy_score(y_test,neighbors.predict(x_test)))
-pickle.dump(neighbors,open('model.pickle','wb'))
-pickle.dump((x_train,y_train,x_test,y_test),open('data.pickle','wb'))
+pickle.dump(neighbors,open('audaxlabs_project_1/model1.pickle','wb'))
+pickle.dump((x_train,y_train,x_test,y_test),open('audaxlabs_project_1/data1.pickle','wb'))
+pickle.dump(tfid,open('audaxlabs_project_1/vectorizer.pickle','wb'))
 
 
 
